@@ -29,8 +29,10 @@ merged_df = pd.merge(
     circuit_month[["datadate", "CircuitNo", "statecode", "pctd", "pctda", "pnld", "join_month"]],
     left_on=['BUSIADDR_STATE', 'join_month'],
     right_on=['statecode', 'join_month'],
-    how='left'  # Use 'inner' if you only want rows that match in both
+    how='inner'  # Use 'inner' if you only want rows that match in both
 )
+
+merged_df = merged_df.loc[merged_df.datadate.dt.year>=1996].copy()
 
 merged_df.to_csv("data/merged_pnld_hist_hq_202603.csv", sep="|", index=False)
 
