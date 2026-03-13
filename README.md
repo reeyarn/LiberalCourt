@@ -9,9 +9,12 @@ Builds the **LiberalCourt (pnld)** measure of federal judge ideology at the circ
 
 **Huang, A., Hui, K. W., & Li, R. Z.** (2019). Federal judge ideology: A new measure of ex ante litigation risk. *Journal of Accounting Research*, 57(2), 431–489.
 
-The script replicates the construction of the *LiberalCourt* variable used in that paper to measure ex ante securities litigation risk from the composition of U.S. Courts of Appeals.
+**Original JAR materials:** Allen Huang, Kai Wai Hui, and Reeyarn Zhiyang Li, [Federal Judge Ideology: A New Measure of Ex-Ante Litigation Risk](https://onlinelibrary.wiley.com/doi/abs/10.1111/1475-679X.12260) ([online appendix](https://www.chicagobooth.edu/-/media/research/arc/docs/journal/online-supplements/hhl-online-appendix.pdf)) ([datasheet and code](https://www.chicagobooth.edu/-/media/research/arc/docs/journal/online-supplements/hhl-datasheet-and-code.zip)).
+
 
 ---
+The script replicates the construction of the *LiberalCourt* variable used in that paper to measure ex ante securities litigation risk from the composition of U.S. Courts of Appeals.
+
 
 ## What it does
 
