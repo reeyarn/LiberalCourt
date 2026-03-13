@@ -3,8 +3,6 @@ Builds the **LiberalCourt (pnld)** measure of federal judge ideology at the circ
 
 `read_fjc_judges_csv.py`
 
-Builds the **LiberalCourt (pnld)** measure of federal judge ideology at the circuit–state–month level, following Huang, Hui, and Li (2019).
-
 ## Reference
 
 **Huang, A., Hui, K. W., & Li, R. Z.** (2019). Federal judge ideology: A new measure of ex ante litigation risk. *Journal of Accounting Research*, 57(2), 431–489.
