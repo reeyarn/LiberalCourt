@@ -16,7 +16,7 @@ CORE METHODOLOGY:
   4. MEASURE (pnld): Probability of a 3-judge panel having ≥2 Democratic appointees,
      calculated via hypergeometric distribution (sampling without replacement).
 
-OUTPUT DATA DICTIONARY (circuit_pctd_pnld_YYYYMM.csv):
+OUTPUT DATA DICTIONARY (liberalcourt_pnld_YYYYMM.csv):
   - datadate:  Month-end date (YYYY-MM-DD).
   - CircuitNo: Circuit identifier (C1-C11, DC).
   - statecode: Two-letter US state abbreviation.
@@ -51,7 +51,10 @@ current_year = datetime.now().year
 current_month = datetime.now().month
 
 # Dynamically create the filename
-FJC_OUTFILE = f"history_judiciary_1789_{current_year}.csv"
+
+import os
+os.makedirs("data", exist_ok=True)
+FJC_OUTFILE = f"data/liberalcourt_pnld_{current_year}{current_month:02d}.csv"
 
 
 # ── 1. Load ────────────────────────────────────────────────────────────────────
@@ -166,7 +169,7 @@ out = (
     .reset_index(drop=True)
 )
 
-# ── Write out ───────────────────────────────────────────────────────────────
+# ── Write appointment-level data ──────────────────────────────────────────────
 out.to_csv(FJC_OUTFILE, sep="|", index=False)
 print(f"Appointment-level data. {len(out)} judge-appointment rows -> {FJC_OUTFILE}")
 
@@ -316,7 +319,7 @@ circuit_month = (
 
 
 
-# ── 9. Merge circuit_states ───────────────────────────────────────────────────
+# ── Merge circuit_states ──────────────────────────────────────────────────────
 circuit_states = pd.DataFrame([
     ("C1","MA"),("C1","ME"),("C1","NH"),("C1","PR"),("C1","RI"),
     ("C10","CO"),("C10","KS"),("C10","NM"),("C10","OK"),("C10","UT"),("C10","WY"),
@@ -335,7 +338,7 @@ circuit_states = pd.DataFrame([
  
 circuit_month = circuit_month.merge(circuit_states, on="CircuitNo", how="left")
  
-# ── 10. Replicate Huang et al. 2019 Table 1 ───────────────────────────────────
+# ── Summary statistics of judge ideology in circuit courts ──────────────────
 # LiberalCourt = yearly mean of monthly pctda (active non-senior dem share)
 circuit_order = ["C1","C2","C3","C4","C5","C6","C7","C8","C9","C10","C11","DC"]
 circuit_label = {"C1":"1st","C2":"2nd","C3":"3rd","C4":"4th","C5":"5th","C6":"6th",
