@@ -1,9 +1,10 @@
 # LiberalCourt
 Builds the **LiberalCourt (pnld)** measure of federal judge ideology at the circuit–state–month level, following Huang, Hui, and Li (2019).
 
-- **`read_fjc_judges_csv.py`**: Python script that downloads FJC `judges.csv`, parses appointments and party, and computes pctd, pctda, and pnld (LiberalCourt) by circuit–month, then expands to circuit–state–month.
-- **`data/liberalcourt_pnld_202603.csv`**: LiberalCourt (pnld) and related measures at the circuit–state–month level (e.g. `circuit_pctd_pnld_YYYYMM.csv` from the script).
-- **`data/merged_pnld_hist_hq_202603.csv`**: Merging LiberalCourt with historical 10-K HQ business address state (updated header file till 2024). -> This is firm-year level data with `[["datadate", "CIK", "pnld"]]`
+- **`read_fjc_judges_csv.py`**: Python script that downloads FJC `judges.csv`, parses appointments and party affiliation, and computes pctd, pctda, and pnld (LiberalCourt) by circuit–month, then expands to circuit–state–month.
+- **`merge_pnld_hist_hq.py`**: Python script demonstrating how to merge LiberalCourt from the circuit–state–month level to the firm-year level.
+- **`data/liberalcourt_pnld_202603.csv`**: LiberalCourt (pnld) and related measures at the circuit–state–month level (e.g., `circuit_pctd_pnld_YYYYMM.csv` produced by the script).
+- **`data/merged_pnld_hist_hq_202603.csv`**: LiberalCourt merged with historical 10-K HQ business address state (using header file updated through **only 2024**). Firm-year level data with columns `["datadate", "CIK", "pnld"]`.
 
 
 ## Reference
