@@ -43,7 +43,7 @@ import requests
 import pandas as pd
 
 FJC_URL     = "https://www.fjc.gov/sites/default/files/history/judges.csv"
-LOCAL_FILE  = pathlib.Path("judges.csv")
+LOCAL_FILE  = pathlib.Path("data/judges.csv")
 from datetime import datetime
 
 # Get the current year
@@ -378,8 +378,8 @@ print(summ_circuityear.round(3).to_string())
 # This is different from Table 1 in Huang et al. (2019) because their Table 1 is after merging with Compustat 
  
 # ── 11. Write out ──────────────────────────────────────────────────────────────
-out.to_csv(FJC_OUTFILE, sep="|", index=False)
-circuit_month[["datadate", "CircuitNo", "statecode",  "pctd", "pctda", "pnld"]].to_csv(f"circuit_pctd_pnld_{current_year}{current_month:02d}.csv", index=False)
+#out.to_csv(FJC_OUTFILE, sep="|", index=False)
+circuit_month[["datadate", "CircuitNo", "statecode",  "pctd", "pctda", "pnld"]].to_csv(FJC_OUTFILE, sep="|", index=False)
 
 
 print(f"      {len(circuit_month)} circuit-month rows    -> circuit_pctd_pnld_{current_year}{current_month:02d}.csv")
